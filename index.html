@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Travel Journal App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>Diario di Viaggio</h1>
+    <form id="entry-form">
+        <label>Foto/Video URL o Upload:
+            <input type="url" name="mediaUrl" placeholder="URL foto o video">
+            <input type="file" name="mediaFile" accept="image/*,video/*">
+        </label>
+        <label>Luogo:
+            <input type="text" name="place" placeholder="Inserisci luogo">
+            <button type="button" id="geo-btn">Usa geolocalizzazione</button>
+        </label>
+        <label>Descrizione:
+            <textarea name="description" required></textarea>
+        </label>
+        <label>Stato d'animo:
+            <select name="mood" required>
+                <option value="">Seleziona</option>
+                <option value="felice">Felice</option>
+                <option value="stressato">Stressato</option>
+                <option value="emozionato">Emozionato</option>
+                <option value="rilassato">Rilassato</option>
+            </select>
+        </label>
+        <label>Riflessione positiva:
+            <input type="text" name="positive" required>
+        </label>
+        <label>Riflessione negativa:
+            <input type="text" name="negative" required>
+        </label>
+        <label>Impegno fisico (1-5):
+            <input type="number" name="physicalEffort" min="1" max="5" required>
+        </label>
+        <label>Effort economico (1-5):
+            <input type="number" name="economicEffort" min="1" max="5" required>
+        </label>
+        <label>Spesa effettiva (€):
+            <input type="number" name="expense" min="0" step="0.01" required>
+        </label>
+        <label>Tags:
+            <input type="text" name="tags" placeholder="es. mare, relax, amici">
+        </label>
+        <button type="submit">Aggiungi tappa</button>
+    </form>
+    <section id="entries-list">
+        <!-- Qui verranno mostrate le tappe -->
+    </section>
+    <script src="script.js"></script>
+</body>
+
+</html>

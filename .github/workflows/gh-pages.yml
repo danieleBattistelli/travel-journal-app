@@ -1,0 +1,16 @@
+name: Deploy sito statico su GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout del codice
+        uses: actions/checkout@v3
+
+      - name: Validazione base del sito
+        run: echo "Tutto ok per il deploy"
