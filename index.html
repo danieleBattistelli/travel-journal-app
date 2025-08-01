@@ -2,58 +2,108 @@
 <html lang="it">
 
 <head>
+    <!-- Impostazioni base della pagina -->
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Travel Journal App</title>
+    <!-- Collegamento al CSS personalizzato -->
     <link rel="stylesheet" href="style.css">
+    <!-- Collegamento a Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body>
-    <h1>Diario di Viaggio</h1>
-    <form id="entry-form">
-        <label>Foto/Video URL o Upload:
-            <input type="url" name="mediaUrl" placeholder="URL foto o video">
-            <input type="file" name="mediaFile" accept="image/*,video/*">
-        </label>
-        <label>Luogo:
-            <input type="text" name="place" placeholder="Inserisci luogo">
-            <button type="button" id="geo-btn">Usa geolocalizzazione</button>
-        </label>
-        <label>Descrizione:
-            <textarea name="description" required></textarea>
-        </label>
-        <label>Stato d'animo:
-            <select name="mood" required>
-                <option value="">Seleziona</option>
-                <option value="felice">Felice</option>
-                <option value="stressato">Stressato</option>
-                <option value="emozionato">Emozionato</option>
-                <option value="rilassato">Rilassato</option>
-            </select>
-        </label>
-        <label>Riflessione positiva:
-            <input type="text" name="positive" required>
-        </label>
-        <label>Riflessione negativa:
-            <input type="text" name="negative" required>
-        </label>
-        <label>Impegno fisico (1-5):
-            <input type="number" name="physicalEffort" min="1" max="5" required>
-        </label>
-        <label>Effort economico (1-5):
-            <input type="number" name="economicEffort" min="1" max="5" required>
-        </label>
-        <label>Spesa effettiva (€):
-            <input type="number" name="expense" min="0" step="0.01" required>
-        </label>
-        <label>Tags:
-            <input type="text" name="tags" placeholder="es. mare, relax, amici">
-        </label>
-        <button type="submit">Aggiungi tappa</button>
-    </form>
-    <section id="entries-list">
-        <!-- Qui verranno mostrate le tappe -->
-    </section>
+    <!-- Contenitore principale Bootstrap -->
+    <div class="container my-4">
+        <!-- Titolo della pagina -->
+        <h1 class="mb-4">Diario di Viaggio</h1>
+        <!-- Form responsive in griglia Bootstrap -->
+        <form id="entry-form">
+            <div class="row">
+                <!-- Campo per URL o upload di foto/video -->
+                <div class="col-12 col-md-6 col-lg-4 mb-3">
+                    <label class="form-label">Foto/Video URL o Upload:</label>
+                    <input type="url" name="mediaUrl" class="form-control mb-2" placeholder="URL foto o video">
+                    <input type="file" name="mediaFile" class="form-control" accept="image/*,video/*"
+                        placeholder="Carica foto o video">
+                </div>
+                <!-- Campo per il luogo, con bottone per geolocalizzazione -->
+                <div class="col-12 col-md-6 col-lg-4 mb-3">
+                    <label class="form-label">Luogo:</label>
+                    <div class="input-group">
+                        <input type="text" name="place" class="form-control" placeholder="Inserisci luogo"
+                            title="Luogo">
+                        <button type="button" id="geo-btn" class="btn btn-outline-success">Usa
+                            geolocalizzazione</button>
+                    </div>
+                </div>
+                <!-- Campo descrizione -->
+                <div class="col-12 col-md-6 col-lg-4 mb-3">
+                    <label class="form-label">Descrizione:</label>
+                    <textarea name="description" class="form-control" required
+                        placeholder="Scrivi una descrizione"></textarea>
+                </div>
+                <!-- Campo stato d'animo -->
+                <div class="col-12 col-md-6 col-lg-4 mb-3">
+                    <label class="form-label">Stato d'animo:</label>
+                    <select name="mood" class="form-select" required title="Stato d'animo">
+                        <option value="">Seleziona</option>
+                        <option value="felice">Felice</option>
+                        <option value="stressato">Stressato</option>
+                        <option value="emozionato">Emozionato</option>
+                        <option value="rilassato">Rilassato</option>
+                    </select>
+                </div>
+                <!-- Campo riflessione positiva -->
+                <div class="col-12 col-md-6 col-lg-4 mb-3">
+                    <label class="form-label">Riflessione positiva:</label>
+                    <input type="text" name="positive" class="form-control" required
+                        placeholder="Scrivi una riflessione positiva" title="Riflessione positiva">
+                </div>
+                <!-- Campo riflessione negativa -->
+                <div class="col-12 col-md-6 col-lg-4 mb-3">
+                    <label class="form-label">Riflessione negativa:</label>
+                    <input type="text" name="negative" class="form-control" required
+                        placeholder="Scrivi una riflessione negativa" title="Riflessione negativa">
+                </div>
+                <!-- Campo impegno fisico -->
+                <div class="col-12 col-md-6 col-lg-4 mb-3">
+                    <label class="form-label">Impegno fisico (1-5):</label>
+                    <input type="number" name="physicalEffort" class="form-control" min="1" max="5" required
+                        placeholder="1-5" title="Impegno fisico da 1 a 5">
+                </div>
+                <!-- Campo effort economico -->
+                <div class="col-12 col-md-6 col-lg-4 mb-3">
+                    <label class="form-label">Effort economico (1-5):</label>
+                    <input type="number" name="economicEffort" class="form-control" min="1" max="5" required
+                        placeholder="1-5" title="Effort economico da 1 a 5">
+                </div>
+                <!-- Campo spesa effettiva -->
+                <div class="col-12 col-md-6 col-lg-4 mb-3">
+                    <label class="form-label">Spesa effettiva (€):</label>
+                    <input type="number" name="expense" class="form-control" min="0" step="0.01" required
+                        placeholder="€ spesi" title="Spesa effettiva in euro">
+                </div>
+                <!-- Campo tags -->
+                <div class="col-12 col-md-6 col-lg-4 mb-3">
+                    <label class="form-label">Tags:</label>
+                    <input type="text" name="tags" class="form-control" placeholder="es. mare, relax, amici">
+                </div>
+                <!-- Bottone per inviare il form -->
+                <div class="col-12 col-md-6 col-lg-12 mb-3">
+                    <button type="submit" class="btn btn-primary w-100">Aggiungi tappa</button>
+                </div>
+            </div>
+        </form>
+        <!-- Sezione dove verranno mostrate le tappe inserite -->
+        <section id="entries-list" class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 mt-5">
+            <!-- Qui verranno mostrate le tappe -->
+        </section>
+    </div>
+    <!-- Collegamento allo script JS -->
     <script src="script.js"></script>
+    <!-- Bootstrap JS (opzionale, solo se ti serve JS di Bootstrap) -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script> -->
 </body>
 
 </html>
